@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         async function mostrarReadme() {
-            const response = await fetch('README.md');
+            const response = await fetch('readme.html');
             const text = await response.text();
             document.getElementById('readme-content').innerText = text;
             document.getElementById('readme-modal').style.display = 'block';
