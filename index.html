@@ -6,13 +6,33 @@
     <title>Evaluación de Uso Responsable de la IA</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        async function mostrarReadme() {
+            const response = await fetch('README.md');
+            const text = await response.text();
+            document.getElementById('readme-content').innerText = text;
+            document.getElementById('readme-modal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('readme-modal').style.display = 'none';
+        }
+    </script>
+
 </head>
 <body>
     <div class="container">
         <div class="titulo">
             <h1>Evaluación de uso responsable de la IA</h1>
             <hr>
-            <p>© 2025 - @jrgsanta</p>
+            <p><button onclick="mostrarReadme()">  Instrucciones  </button> - © 2025 - @jrgsanta</p>
+
+            <div id="readme-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="cerrarModal()">&times;</span>
+                    <pre id="readme-content"></pre>
+                </div>
+            </div>
         </div>
         
         <div id="formSection">
