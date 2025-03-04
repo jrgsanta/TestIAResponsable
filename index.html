@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-        async function mostrarReadme() {
-            const response = await fetch('readme.html');
-            const text = await response.text();
-            document.getElementById('readme-content').innerText = text;
+        function mostrarReadme() {
             document.getElementById('readme-modal').style.display = 'block';
+            document.getElementById('readme-frame').src = 'readme.html';
         }
 
         function cerrarModal() {
@@ -29,8 +27,12 @@
 
             <div id="readme-modal" class="modal">
                 <div class="modal-content">
-                    <span class="close" onclick="cerrarModal()">&times;</span>
-                    <pre id="readme-content"></pre>
+                    <div class="modal-header">
+                        <span class="close" onclick="cerrarModal()">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="readme-frame"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
